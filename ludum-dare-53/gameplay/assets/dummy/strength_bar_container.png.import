@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7qr2ghc7bk7y"
-path="res://.godot/imported/cannon_barrell.png-a7d8c88f5cddd0263dfcc70ffcaf8dbb.ctex"
+uid="uid://rn1fx5pmtmid"
+path="res://.godot/imported/strength_bar_container.png-89037acc088edf0c305502826805ca3f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ludum-dare-53/gameplay/assets/dummy/cannon_barrell.png"
-dest_files=["res://.godot/imported/cannon_barrell.png-a7d8c88f5cddd0263dfcc70ffcaf8dbb.ctex"]
+source_file="res://ludum-dare-53/gameplay/assets/dummy/strength_bar_container.png"
+dest_files=["res://.godot/imported/strength_bar_container.png-89037acc088edf0c305502826805ca3f.ctex"]
 
 [params]
 
