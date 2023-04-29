@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://cecar84qvpxuh"]
+[gd_scene load_steps=6 format=3 uid="uid://cecar84qvpxuh"]
 
 [ext_resource type="Script" path="res://ludum-dare-53/gameplay/gameplay.gd" id="1_qhyfw"]
 [ext_resource type="Script" path="res://ludum-dare-53/gameplay/gameplay_ui.gd" id="2_2anl2"]
 [ext_resource type="Script" path="res://ludum-dare-53/gameplay/pause_menu.gd" id="3_rnfxv"]
+[ext_resource type="Texture2D" uid="uid://dchr86joxyd8j" path="res://ludum-dare-53/gameplay/assets/dummy/cannon_barrell.png" id="4_cjo50"]
+[ext_resource type="Texture2D" uid="uid://1ew0upj6an7c" path="res://ludum-dare-53/gameplay/assets/dummy/cannon_body.png" id="5_fghm2"]
 
 [node name="gameplay" type="Node"]
 script = ExtResource("1_qhyfw")
@@ -17,6 +19,7 @@ grow_vertical = 2
 script = ExtResource("2_2anl2")
 
 [node name="ColorRect" type="ColorRect" parent="GUI"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -64,5 +67,17 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 35
 text = "EXIT"
+
+[node name="Cannon" type="Node2D" parent="."]
+
+[node name="CannonBarrell" type="Sprite2D" parent="Cannon"]
+position = Vector2(275, 496)
+rotation = -6.34275
+texture = ExtResource("4_cjo50")
+offset = Vector2(70, -20)
+
+[node name="CannonBody" type="Sprite2D" parent="Cannon"]
+position = Vector2(245, 519)
+texture = ExtResource("5_fghm2")
 
 [connection signal="pressed" from="GUI/PauseMenu/BackToMenuBtn" to="GUI/PauseMenu" method="_on_back_to_menu_btn_pressed"]

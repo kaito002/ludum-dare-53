@@ -19,6 +19,11 @@ config/icon="res://icon.svg"
 
 AppNavigator="*res://ludum-dare-53/app_navigator.tscn"
 
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+
 [input]
 
 pause_menu={
