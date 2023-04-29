@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0ctxkuc4khyq"]
+
+[ext_resource type="Script" path="res://ludum-dare-53/navigator/stack_navigator.gd" id="1_ias48"]
+
+[node name="StackNavigator" type="Node"]
+script = ExtResource("1_ias48")
+
+[node name="Content" type="Node" parent="."]

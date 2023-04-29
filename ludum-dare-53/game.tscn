@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://viq0a084ybci"]
+
+[ext_resource type="Script" path="res://ludum-dare-53/game.gd" id="1_hm02u"]
+[ext_resource type="PackedScene" uid="uid://b0ctxkuc4khyq" path="res://ludum-dare-53/app_navigator.tscn" id="1_yxobk"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_hm02u")
+
+[node name="StackNavigator" parent="." instance=ExtResource("1_yxobk")]
