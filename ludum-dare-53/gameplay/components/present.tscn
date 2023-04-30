@@ -9,8 +9,10 @@ size = Vector2(226, 228)
 [node name="Present" type="CharacterBody2D"]
 position = Vector2(140, 581)
 script = ExtResource("2_ev851")
+max_force = 100.0
 initialDirection = Vector2(1, -1)
-speed = Vector2(3, 3)
+speed = Vector2(3, 2.5)
+gravity = 150
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(2.08165e-12, 2.08165e-12)
