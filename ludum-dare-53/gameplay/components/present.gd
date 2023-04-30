@@ -17,7 +17,7 @@ func _ready() -> void:
 	velocity.y = speed.y
 
 func _physics_process(delta: float) -> void:
-	
+	speed.x = speed.x - (speed.x * 0.2 * delta)
 	velocity.y += gravity * delta* 3
 	velocity.x = speed.x
 	move_and_slide()

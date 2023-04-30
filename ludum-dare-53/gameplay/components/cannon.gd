@@ -50,7 +50,7 @@ func _calculate_strength(_delta: float) -> void:
 
 func _fire_present() -> void:
 	var p: Present = present.instantiate()
-	p.scale = scale
+	p.scale /= scale
 	p.set_force_and_direction(strength_bar.value, Vector2(1, cannon_barrell.rotation_degrees / 100))
 	p.position = cannon_output.global_position
 	get_tree().root.add_child(p)

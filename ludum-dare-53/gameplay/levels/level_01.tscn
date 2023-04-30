@@ -1,17 +1,149 @@
-[gd_scene load_steps=4 format=3 uid="uid://d0x1pe300ugod"]
+[gd_scene load_steps=16 format=3 uid="uid://dnlugdptjk5g8"]
 
 [ext_resource type="Script" path="res://ludum-dare-53/gameplay/levels/level_01.gd" id="1_7oig1"]
 [ext_resource type="PackedScene" uid="uid://dv64myk5lp1nx" path="res://ludum-dare-53/gameplay/components/cannon.tscn" id="1_jgvpw"]
+[ext_resource type="Texture2D" uid="uid://cp7d7xci3b118" path="res://ludum-dare-53/gameplay/assets/legacy/background/sky.png" id="2_7j8kq"]
+[ext_resource type="Texture2D" uid="uid://dlm2ev604w0ar" path="res://ludum-dare-53/gameplay/assets/legacy/background/copo1.png" id="2_lc4cy"]
+[ext_resource type="Texture2D" uid="uid://coh7w4v8p34gx" path="res://ludum-dare-53/gameplay/assets/legacy/background/copo2.png" id="3_3mvmm"]
 [ext_resource type="Script" path="res://ludum-dare-53/gameplay/levels/level_camera.gd" id="3_5hkl5"]
+[ext_resource type="Texture2D" uid="uid://yja1x4ypal8t" path="res://ludum-dare-53/gameplay/assets/legacy/background/mountain.png" id="3_r0w1k"]
+[ext_resource type="Texture2D" uid="uid://bnnwqj3wnfmgh" path="res://ludum-dare-53/gameplay/assets/legacy/background/whoville.png" id="4_2ske4"]
+[ext_resource type="Texture2D" uid="uid://xpfwxjnobf6v" path="res://ludum-dare-53/gameplay/assets/legacy/background/copo3.png" id="4_frpi4"]
+[ext_resource type="Texture2D" uid="uid://cfmwost5xf0h8" path="res://ludum-dare-53/gameplay/assets/legacy/background/copo4.png" id="5_q5gfe"]
+[ext_resource type="Texture2D" uid="uid://cl5odarq33uhr" path="res://ludum-dare-53/gameplay/assets/legacy/background/copo5.png" id="6_wp8fy"]
+[ext_resource type="Texture2D" uid="uid://8i03o7pllaa2" path="res://ludum-dare-53/gameplay/assets/legacy/base/base.png" id="7_niy4e"]
+[ext_resource type="Texture2D" uid="uid://ch4prx8mxfapf" path="res://ludum-dare-53/gameplay/assets/legacy/base/snow_base.png" id="8_fpncg"]
+[ext_resource type="Texture2D" uid="uid://c77awmdjm72lh" path="res://ludum-dare-53/gameplay/assets/legacy/background/floor.png" id="12_8hwqy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g0ha5"]
+size = Vector2(5685, 45)
 
 [node name="level_01" type="Node"]
 script = ExtResource("1_7oig1")
 
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Sky" type="Sprite2D" parent="Background"]
+position = Vector2(3439, -748)
+scale = Vector2(9.08299, 10.6368)
+texture = ExtResource("2_7j8kq")
+
+[node name="Mountains" type="Node2D" parent="Background"]
+
+[node name="Mountain" type="Sprite2D" parent="Background/Mountains"]
+position = Vector2(930.222, 762)
+scale = Vector2(1.92963, 1.92963)
+texture = ExtResource("3_r0w1k")
+
+[node name="Mountain2" type="Sprite2D" parent="Background/Mountains"]
+position = Vector2(2774, 762)
+scale = Vector2(1.92963, 1.92963)
+texture = ExtResource("3_r0w1k")
+
+[node name="Mountain3" type="Sprite2D" parent="Background/Mountains"]
+position = Vector2(4381, 762)
+scale = Vector2(1.92963, 1.92963)
+texture = ExtResource("3_r0w1k")
+
+[node name="Ville" type="Node2D" parent="Background"]
+
+[node name="Whoville" type="Sprite2D" parent="Background/Ville"]
+position = Vector2(772.667, 841)
+scale = Vector2(1.62222, 1.62222)
+texture = ExtResource("4_2ske4")
+
+[node name="Whoville2" type="Sprite2D" parent="Background/Ville"]
+position = Vector2(2319, 845)
+scale = Vector2(1.62222, 1.62222)
+texture = ExtResource("4_2ske4")
+
+[node name="Whoville3" type="Sprite2D" parent="Background/Ville"]
+position = Vector2(3868, 845)
+scale = Vector2(1.62222, 1.62222)
+texture = ExtResource("4_2ske4")
+
+[node name="Whoville4" type="Sprite2D" parent="Background/Ville"]
+position = Vector2(5411, 845)
+scale = Vector2(1.62222, 1.62222)
+texture = ExtResource("4_2ske4")
+
+[node name="Snowflakes" type="Node2D" parent="Background"]
+
+[node name="Copo1" type="Sprite2D" parent="Background/Snowflakes"]
+position = Vector2(604, 453)
+texture = ExtResource("2_lc4cy")
+
+[node name="Copo2" type="Sprite2D" parent="Background/Snowflakes"]
+position = Vector2(834, 891)
+texture = ExtResource("3_3mvmm")
+
+[node name="Copo3" type="Sprite2D" parent="Background/Snowflakes"]
+position = Vector2(1154, 449)
+texture = ExtResource("4_frpi4")
+
+[node name="Copo4" type="Sprite2D" parent="Background/Snowflakes"]
+position = Vector2(1443, 444)
+texture = ExtResource("5_q5gfe")
+
+[node name="Copo5" type="Sprite2D" parent="Background/Snowflakes"]
+position = Vector2(1357, 777)
+texture = ExtResource("6_wp8fy")
+
+[node name="Hill" type="Node2D" parent="Background"]
+position = Vector2(-26, 8)
+
+[node name="Base" type="Sprite2D" parent="Background/Hill"]
+position = Vector2(179.25, 1094.56)
+scale = Vector2(2.14444, 2.14444)
+texture = ExtResource("7_niy4e")
+
+[node name="SnowBase" type="Sprite2D" parent="Background/Hill"]
+position = Vector2(166.875, 959)
+scale = Vector2(1.98704, 1)
+texture = ExtResource("8_fpncg")
+
+[node name="Floor" type="Node2D" parent="Background"]
+
+[node name="Floor" type="Sprite2D" parent="Background/Floor"]
+position = Vector2(409, 1244)
+texture = ExtResource("12_8hwqy")
+
+[node name="Floor2" type="Sprite2D" parent="Background/Floor"]
+position = Vector2(1235, 1244)
+texture = ExtResource("12_8hwqy")
+
+[node name="Floor3" type="Sprite2D" parent="Background/Floor"]
+position = Vector2(2057, 1244)
+texture = ExtResource("12_8hwqy")
+
+[node name="Floor4" type="Sprite2D" parent="Background/Floor"]
+position = Vector2(2880, 1244)
+texture = ExtResource("12_8hwqy")
+
+[node name="Floor5" type="Sprite2D" parent="Background/Floor"]
+position = Vector2(3710, 1244)
+texture = ExtResource("12_8hwqy")
+
+[node name="Floor6" type="Sprite2D" parent="Background/Floor"]
+position = Vector2(4535, 1244)
+texture = ExtResource("12_8hwqy")
+
+[node name="Floor7" type="Sprite2D" parent="Background/Floor"]
+position = Vector2(5358, 1244)
+texture = ExtResource("12_8hwqy")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Background/Floor"]
+collision_layer = 3
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Floor/StaticBody2D"]
+position = Vector2(2969.5, 1265.5)
+shape = SubResource("RectangleShape2D_g0ha5")
+
 [node name="Cannon" parent="." instance=ExtResource("1_jgvpw")]
-position = Vector2(126, 890)
-scale = Vector2(0.5, 0.5)
+position = Vector2(185, 931)
 min_angle = -50
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(989, 642)
+position = Vector2(542, 818)
 script = ExtResource("3_5hkl5")
