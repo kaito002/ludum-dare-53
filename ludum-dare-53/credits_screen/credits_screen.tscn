@@ -1,6 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://b0bvg4xgyyfc3"]
+[gd_scene load_steps=11 format=3 uid="uid://b0bvg4xgyyfc3"]
 
 [ext_resource type="Script" path="res://ludum-dare-53/credits_screen/credits_screen.gd" id="1_s0ec3"]
+[ext_resource type="Texture2D" uid="uid://cp7d7xci3b118" path="res://ludum-dare-53/gameplay/assets/legacy/background/sky.png" id="2_b2cno"]
+[ext_resource type="Texture2D" uid="uid://c443griqkmx1e" path="res://ludum-dare-53/gameplay/assets/legacy/main/title.png" id="3_vjbmv"]
+[ext_resource type="Texture2D" uid="uid://yja1x4ypal8t" path="res://ludum-dare-53/gameplay/assets/legacy/background/mountain.png" id="4_haoru"]
+[ext_resource type="Texture2D" uid="uid://bnnwqj3wnfmgh" path="res://ludum-dare-53/gameplay/assets/legacy/background/whoville.png" id="5_qfrl3"]
+[ext_resource type="Texture2D" uid="uid://dlm2ev604w0ar" path="res://ludum-dare-53/gameplay/assets/legacy/background/copo1.png" id="6_m0j6a"]
+[ext_resource type="Texture2D" uid="uid://coh7w4v8p34gx" path="res://ludum-dare-53/gameplay/assets/legacy/background/copo2.png" id="7_82262"]
+[ext_resource type="Texture2D" uid="uid://xpfwxjnobf6v" path="res://ludum-dare-53/gameplay/assets/legacy/background/copo3.png" id="8_7caxs"]
+[ext_resource type="Texture2D" uid="uid://cfmwost5xf0h8" path="res://ludum-dare-53/gameplay/assets/legacy/background/copo4.png" id="9_73cuk"]
+[ext_resource type="Texture2D" uid="uid://cl5odarq33uhr" path="res://ludum-dare-53/gameplay/assets/legacy/background/copo5.png" id="10_2xqdi"]
 
 [node name="credits_screen" type="Node"]
 script = ExtResource("1_s0ec3")
@@ -13,14 +22,112 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="Control"]
+[node name="Sky" type="NinePatchRect" parent="Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(1, 0.839216, 1, 1)
+texture = ExtResource("2_b2cno")
+
+[node name="Title2" type="NinePatchRect" parent="Control"]
+offset_left = 6.0
+offset_top = 4.0
+offset_right = 1918.0
+offset_bottom = 1080.0
+texture = ExtResource("3_vjbmv")
+
+[node name="Mountain" type="NinePatchRect" parent="Control"]
+offset_left = 8.0
+offset_top = 207.0
+offset_right = 1929.0
+offset_bottom = 1287.0
+texture = ExtResource("4_haoru")
+
+[node name="Whoville" type="NinePatchRect" parent="Control"]
+offset_left = 7.0
+offset_top = 203.0
+offset_right = 1931.0
+offset_bottom = 1285.0
+texture = ExtResource("5_qfrl3")
+
+[node name="Copo1" type="NinePatchRect" parent="Control"]
+offset_left = 246.0
+offset_top = 629.0
+offset_right = 323.0
+offset_bottom = 710.0
+texture = ExtResource("6_m0j6a")
+
+[node name="Copo8" type="NinePatchRect" parent="Control"]
+offset_left = 227.0
+offset_top = 155.0
+offset_right = 304.0
+offset_bottom = 236.0
+texture = ExtResource("6_m0j6a")
+
+[node name="Copo2" type="NinePatchRect" parent="Control"]
+offset_left = 1315.0
+offset_top = 751.0
+offset_right = 1357.0
+offset_bottom = 796.0
+texture = ExtResource("7_82262")
+
+[node name="Copo7" type="NinePatchRect" parent="Control"]
+offset_left = 843.0
+offset_top = 1100.0
+offset_right = 885.0
+offset_bottom = 1145.0
+texture = ExtResource("7_82262")
+
+[node name="Copo6" type="NinePatchRect" parent="Control"]
+offset_left = 1634.0
+offset_top = 1009.0
+offset_right = 1733.0
+offset_bottom = 1115.0
+texture = ExtResource("7_82262")
+
+[node name="Copo3" type="NinePatchRect" parent="Control"]
+offset_left = 823.0
+offset_top = 526.0
+offset_right = 950.0
+offset_bottom = 653.0
+texture = ExtResource("8_7caxs")
+
+[node name="Copo11" type="NinePatchRect" parent="Control"]
+offset_left = 1674.0
+offset_top = 69.0
+offset_right = 1801.0
+offset_bottom = 196.0
+texture = ExtResource("8_7caxs")
+
+[node name="Copo4" type="NinePatchRect" parent="Control"]
+offset_left = 1646.0
+offset_top = 464.0
+offset_right = 1728.0
+offset_bottom = 556.0
+texture = ExtResource("9_73cuk")
+
+[node name="Copo9" type="NinePatchRect" parent="Control"]
+offset_left = 1295.0
+offset_top = 1066.0
+offset_right = 1377.0
+offset_bottom = 1158.0
+texture = ExtResource("9_73cuk")
+
+[node name="Copo5" type="NinePatchRect" parent="Control"]
+offset_left = 268.0
+offset_top = 1079.0
+offset_right = 343.0
+offset_bottom = 1152.0
+texture = ExtResource("10_2xqdi")
+
+[node name="Copo10" type="NinePatchRect" parent="Control"]
+offset_left = 1353.0
+offset_top = 537.0
+offset_right = 1428.0
+offset_bottom = 610.0
+texture = ExtResource("10_2xqdi")
 
 [node name="BackBtn" type="Button" parent="Control"]
 layout_mode = 0
@@ -30,5 +137,42 @@ offset_right = 187.0
 offset_bottom = 109.0
 theme_override_font_sizes/font_size = 25
 text = "Volver"
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -415.5
+offset_top = 31.0
+offset_right = 415.5
+offset_bottom = 419.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.541176)
+
+[node name="Label" type="Label" parent="Control/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.5
+offset_top = -1.0
+offset_right = 0.5
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Participantes
+
+Diego Bresso
+Lorena Rodriguez <Nash>
+Martin Gomez
+Paula Sifredi
+Carlos Montes <Kaito>"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="Control/BackBtn" to="." method="_on_back_btn_pressed"]

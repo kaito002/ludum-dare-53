@@ -1,8 +1,10 @@
 extends Node2D
+class_name Cannon
 
 @onready var strength_bar: TextureProgressBar = $StrengthBar
 @onready var cannon_barrell = $CannonBarrell
 @onready var cannon_output = $CannonBarrell/CannontOutput
+@onready var shoot_sound: AudioStreamPlayer2D = $ShootSound
 
 @export var rotation_speed: float = 0.5
 @export var strength_speed: float = 0.5
@@ -12,6 +14,7 @@ extends Node2D
 
 @export var max_strength: = 200
 
+var cannont_shoot = false
 var direction = 1
 var lock_cannon = false
 var lock_strength = false
@@ -24,6 +27,8 @@ func _ready() -> void:
 	strength_bar.max_value = max_strength
 
 func _process(_delta) -> void:
+	if (cannont_shoot): return
+
 	if (Input.is_action_just_pressed('lock_cannon') && !lock_cannon):
 		lock_cannon = true
 		strength_bar.visible = true
@@ -49,9 +54,22 @@ func _calculate_strength(_delta: float) -> void:
 			strength_speed *= -1
 
 func _fire_present() -> void:
+	shoot_sound.play()
 	var p: Present = present.instantiate()
 	p.scale /= scale
 	p.set_force_and_direction(strength_bar.value, Vector2(1, cannon_barrell.rotation_degrees / 100))
 	p.position = cannon_output.global_position
 	get_tree().root.add_child(p)
 	emit_signal('present_fired', p)
+
+func reset():
+	lock_cannon = false
+	lock_strength = false
+	strength_bar.visible = false
+
+
+func lock_shoots():
+	cannont_shoot = true
+
+func unlock_shoots():
+	cannont_shoot = false

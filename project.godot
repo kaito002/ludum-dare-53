@@ -38,6 +38,13 @@ lock_cannon={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_3="good_kids"
+2d_physics/layer_4="bad_kids"
+2d_physics/layer_5="present"
+2d_physics/layer_6="head_good_kid"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

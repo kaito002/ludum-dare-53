@@ -1,0 +1,70 @@
+[gd_scene load_steps=7 format=3 uid="uid://j413sskx1hcb"]
+
+[ext_resource type="Texture2D" uid="uid://d0padd6jfnppw" path="res://ludum-dare-53/gameplay/assets/legacy/characters/bad_boy.png" id="1_us5j0"]
+[ext_resource type="Script" path="res://ludum-dare-53/gameplay/components/bad_kid.gd" id="2_pcyte"]
+
+[sub_resource type="Animation" id="Animation_5t8qw"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 2, 2, 2, 2, 3, 4, 5, 6, 7, 8]
+}
+
+[sub_resource type="Animation" id="Animation_emib4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o32hd"]
+_data = {
+"RESET": SubResource("Animation_emib4"),
+"idle": SubResource("Animation_5t8qw")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b48y6"]
+size = Vector2(33, 47)
+
+[node name="bad_kid" type="Node2D"]
+position = Vector2(142, 101)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_us5j0")
+hframes = 9
+script = ExtResource("2_pcyte")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+root_node = NodePath("../..")
+method_call_mode = 1
+movie_quit_on_finish = true
+libraries = {
+"": SubResource("AnimationLibrary_o32hd")
+}
+
+[node name="BodyCollision" type="Area2D" parent="Sprite2D"]
+collision_layer = 8
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/BodyCollision"]
+position = Vector2(0.5, 1.5)
+shape = SubResource("RectangleShape2D_b48y6")
+
+[connection signal="area_entered" from="Sprite2D/BodyCollision" to="Sprite2D" method="_on_body_collision_area_entered"]

@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://dgfrk7ewducy6"]
+[gd_scene load_steps=7 format=3 uid="uid://dgfrk7ewducy6"]
 
 [ext_resource type="Script" path="res://ludum-dare-53/start_menu_screen/start_menu_screen.gd" id="1_o431y"]
+[ext_resource type="Texture2D" uid="uid://cp7d7xci3b118" path="res://ludum-dare-53/gameplay/assets/legacy/background/sky.png" id="2_jnmm4"]
+[ext_resource type="Texture2D" uid="uid://yja1x4ypal8t" path="res://ludum-dare-53/gameplay/assets/legacy/background/mountain.png" id="3_efmw8"]
+[ext_resource type="Texture2D" uid="uid://bnnwqj3wnfmgh" path="res://ludum-dare-53/gameplay/assets/legacy/background/whoville.png" id="4_1ij8k"]
+[ext_resource type="Texture2D" uid="uid://c443griqkmx1e" path="res://ludum-dare-53/gameplay/assets/legacy/main/title.png" id="5_p6j4d"]
+[ext_resource type="AudioStream" uid="uid://bq6x3st1qp8w1" path="res://ludum-dare-53/gameplay/assets/sounds/main_screen.wav" id="6_a36rx"]
 
 [node name="StartMenuScreen" type="Node"]
 script = ExtResource("1_o431y")
@@ -13,14 +18,39 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="Control"]
+[node name="Sky" type="NinePatchRect" parent="Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.0941176, 1, 0.705882, 1)
+texture = ExtResource("2_jnmm4")
+
+[node name="Mountain" type="NinePatchRect" parent="Control"]
+offset_left = 2.0
+offset_top = 204.0
+offset_right = 1922.0
+offset_bottom = 1284.0
+texture = ExtResource("3_efmw8")
+
+[node name="Whoville" type="NinePatchRect" parent="Control"]
+offset_left = 5.0
+offset_top = 210.0
+offset_right = 1921.0
+offset_bottom = 1288.0
+texture = ExtResource("4_1ij8k")
+
+[node name="Title" type="NinePatchRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -977.0
+offset_right = 977.0
+offset_bottom = 1099.0
+grow_horizontal = 2
+texture = ExtResource("5_p6j4d")
 
 [node name="CreditsBtn" type="Button" parent="Control"]
 layout_mode = 1
@@ -29,59 +59,34 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -126.5
-offset_top = -160.0
-offset_right = 126.5
-offset_bottom = -54.0
+offset_left = -132.0
+offset_top = -326.0
+offset_right = 121.0
+offset_bottom = -220.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 25
 text = "Credits"
 
 [node name="LevelOneBtn" type="Button" parent="Control"]
-layout_mode = 0
-offset_left = 233.0
-offset_top = 191.0
-offset_right = 545.0
-offset_bottom = 357.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -402.0
+offset_top = 52.0
+offset_right = 391.0
+offset_bottom = 218.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_font_sizes/font_size = 35
-text = "LEVEL 01"
+text = "PLAY"
 
-[node name="LevelOneBtn2" type="Button" parent="Control"]
-layout_mode = 0
-offset_left = 797.0
-offset_top = 207.0
-offset_right = 1109.0
-offset_bottom = 373.0
-theme_override_font_sizes/font_size = 35
-text = "LEVEL 02"
-
-[node name="LevelOneBtn3" type="Button" parent="Control"]
-layout_mode = 0
-offset_left = 1377.0
-offset_top = 220.0
-offset_right = 1689.0
-offset_bottom = 386.0
-theme_override_font_sizes/font_size = 35
-text = "LEVEL 03"
-
-[node name="LevelOneBtn4" type="Button" parent="Control"]
-layout_mode = 0
-offset_left = 478.0
-offset_top = 575.0
-offset_right = 790.0
-offset_bottom = 741.0
-theme_override_font_sizes/font_size = 35
-text = "LEVEL 04"
-
-[node name="LevelOneBtn5" type="Button" parent="Control"]
-layout_mode = 0
-offset_left = 1110.0
-offset_top = 582.0
-offset_right = 1422.0
-offset_bottom = 748.0
-theme_override_font_sizes/font_size = 35
-text = "LEVEL 05"
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_a36rx")
+autoplay = true
 
 [connection signal="pressed" from="Control/CreditsBtn" to="." method="_on_credits_btn_pressed"]
 [connection signal="pressed" from="Control/LevelOneBtn" to="." method="_on_level_one_btn_pressed"]

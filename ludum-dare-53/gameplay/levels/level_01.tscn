@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dnlugdptjk5g8"]
+[gd_scene load_steps=25 format=3 uid="uid://dnlugdptjk5g8"]
 
 [ext_resource type="Script" path="res://ludum-dare-53/gameplay/levels/level_01.gd" id="1_7oig1"]
 [ext_resource type="PackedScene" uid="uid://dv64myk5lp1nx" path="res://ludum-dare-53/gameplay/components/cannon.tscn" id="1_jgvpw"]
@@ -14,12 +14,24 @@
 [ext_resource type="Texture2D" uid="uid://8i03o7pllaa2" path="res://ludum-dare-53/gameplay/assets/legacy/base/base.png" id="7_niy4e"]
 [ext_resource type="Texture2D" uid="uid://ch4prx8mxfapf" path="res://ludum-dare-53/gameplay/assets/legacy/base/snow_base.png" id="8_fpncg"]
 [ext_resource type="Texture2D" uid="uid://c77awmdjm72lh" path="res://ludum-dare-53/gameplay/assets/legacy/background/floor.png" id="12_8hwqy"]
+[ext_resource type="Texture2D" uid="uid://rn1fx5pmtmid" path="res://ludum-dare-53/gameplay/assets/dummy/strength_bar_container.png" id="15_7udl7"]
+[ext_resource type="Texture2D" uid="uid://j2lgjplcs0mt" path="res://ludum-dare-53/gameplay/assets/dummy/strength_bar_fill.png" id="16_q1go5"]
+[ext_resource type="Script" path="res://ludum-dare-53/gameplay/gm_color_dots_kids.gd" id="17_x10h5"]
+[ext_resource type="PackedScene" uid="uid://j413sskx1hcb" path="res://ludum-dare-53/gameplay/components/bad_kid.tscn" id="18_6v3md"]
+[ext_resource type="Texture2D" uid="uid://segx1ueywsas" path="res://ludum-dare-53/gameplay/assets/dummy/present.png" id="18_ojy3w"]
+[ext_resource type="PackedScene" uid="uid://bwrin3pqg5mxe" path="res://ludum-dare-53/gameplay/components/good_kid.tscn" id="19_rsejb"]
+[ext_resource type="PackedScene" uid="uid://brykmuaskw8h4" path="res://ludum-dare-53/gameplay/components/grinch.tscn" id="20_1r7vm"]
+[ext_resource type="AudioStream" uid="uid://dob6c1mtr3va4" path="res://ludum-dare-53/gameplay/assets/sounds/in_game.ogg" id="22_0v5hp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g0ha5"]
 size = Vector2(5685, 45)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p86hm"]
+size = Vector2(856.159, 39.822)
+
 [node name="level_01" type="Node"]
 script = ExtResource("1_7oig1")
+metadata/_edit_vertical_guides_ = [6136.0]
 
 [node name="Background" type="Node2D" parent="."]
 
@@ -104,12 +116,12 @@ texture = ExtResource("8_fpncg")
 
 [node name="Floor" type="Node2D" parent="Background"]
 
-[node name="Floor" type="Sprite2D" parent="Background/Floor"]
-position = Vector2(409, 1244)
-texture = ExtResource("12_8hwqy")
-
 [node name="Floor2" type="Sprite2D" parent="Background/Floor"]
 position = Vector2(1235, 1244)
+texture = ExtResource("12_8hwqy")
+
+[node name="Floor8" type="Sprite2D" parent="Background/Floor"]
+position = Vector2(438, 1244)
 texture = ExtResource("12_8hwqy")
 
 [node name="Floor3" type="Sprite2D" parent="Background/Floor"]
@@ -140,10 +152,199 @@ collision_mask = 0
 position = Vector2(2969.5, 1265.5)
 shape = SubResource("RectangleShape2D_g0ha5")
 
+[node name="Limit" type="Node2D" parent="Background"]
+
+[node name="Wall" type="Sprite2D" parent="Background/Limit"]
+position = Vector2(5794.16, 514.931)
+rotation = -1.58039
+scale = Vector2(1.91574, 6.55097)
+texture = ExtResource("12_8hwqy")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Background/Limit/Wall"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Limit/Wall/StaticBody2D"]
+position = Vector2(13.0953, 14.5412)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_p86hm")
+
 [node name="Cannon" parent="." instance=ExtResource("1_jgvpw")]
 position = Vector2(185, 931)
 min_angle = -50
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(542, 818)
+position = Vector2(961, 651)
 script = ExtResource("3_5hkl5")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GUI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/GUI"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -534.0
+offset_top = 76.0
+offset_right = -61.0
+offset_bottom = 174.0
+grow_horizontal = 0
+scale = Vector2(1, 0.5)
+color = Color(0.588235, 0.588235, 0.588235, 1)
+
+[node name="PointsBar" type="TextureProgressBar" parent="CanvasLayer/GUI/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 600.0
+texture_over = ExtResource("15_7udl7")
+texture_progress = ExtResource("16_q1go5")
+script = ExtResource("17_x10h5")
+
+[node name="Points" type="Label" parent="CanvasLayer/GUI"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -482.0
+offset_top = 173.0
+offset_right = -61.0
+offset_bottom = 245.0
+grow_horizontal = 0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 6
+theme_override_constants/shadow_offset_y = 7
+theme_override_font_sizes/font_size = 50
+text = "0000"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="CanvasLayer/GUI"]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 95.0
+offset_right = 415.0
+offset_bottom = 179.0
+
+[node name="Present" type="NinePatchRect" parent="CanvasLayer/GUI/Panel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -120.0
+offset_right = 172.0
+offset_bottom = 59.0
+grow_vertical = 2
+texture = ExtResource("18_ojy3w")
+
+[node name="TotalPresentsCounter" type="Label" parent="CanvasLayer/GUI/Panel"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -289.0
+offset_top = -30.0
+offset_right = -32.0
+offset_bottom = 31.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 55
+text = "8"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CanvasLayer"]
+position = Vector2(19, 225)
+stream = ExtResource("22_0v5hp")
+autoplay = true
+max_distance = 12000.0
+area_mask = 2
+
+[node name="grinch" parent="." instance=ExtResource("20_1r7vm")]
+position = Vector2(93, 867)
+scale = Vector2(2.5, 2.5)
+
+[node name="kids" type="Node2D" parent="."]
+
+[node name="bad_kid" parent="kids" instance=ExtResource("18_6v3md")]
+position = Vector2(696, 1193)
+scale = Vector2(2, 2)
+
+[node name="bad_kid2" parent="kids" instance=ExtResource("18_6v3md")]
+position = Vector2(1044, 1192)
+scale = Vector2(2, 2)
+
+[node name="bad_kid3" parent="kids" instance=ExtResource("18_6v3md")]
+position = Vector2(1657, 1192)
+scale = Vector2(2, 2)
+
+[node name="bad_kid4" parent="kids" instance=ExtResource("18_6v3md")]
+position = Vector2(2151, 1196)
+scale = Vector2(2, 2)
+
+[node name="bad_kid5" parent="kids" instance=ExtResource("18_6v3md")]
+position = Vector2(2803, 1196)
+scale = Vector2(2, 2)
+
+[node name="bad_kid6" parent="kids" instance=ExtResource("18_6v3md")]
+position = Vector2(3368, 1196)
+scale = Vector2(2, 2)
+
+[node name="bad_kid7" parent="kids" instance=ExtResource("18_6v3md")]
+position = Vector2(4024, 1196)
+scale = Vector2(2, 2)
+
+[node name="bad_kid8" parent="kids" instance=ExtResource("18_6v3md")]
+position = Vector2(4115, 1199)
+scale = Vector2(2, 2)
+
+[node name="good_kid" parent="kids" instance=ExtResource("19_rsejb")]
+position = Vector2(870, 1190)
+scale = Vector2(2, 2)
+
+[node name="good_kid2" parent="kids" instance=ExtResource("19_rsejb")]
+position = Vector2(1279, 1190)
+scale = Vector2(2, 2)
+
+[node name="good_kid3" parent="kids" instance=ExtResource("19_rsejb")]
+position = Vector2(1443, 1190)
+scale = Vector2(2, 2)
+
+[node name="good_kid4" parent="kids" instance=ExtResource("19_rsejb")]
+position = Vector2(1931, 1190)
+scale = Vector2(2, 2)
+
+[node name="good_kid5" parent="kids" instance=ExtResource("19_rsejb")]
+position = Vector2(2447, 1192)
+scale = Vector2(2, 2)
+
+[node name="good_kid6" parent="kids" instance=ExtResource("19_rsejb")]
+position = Vector2(2564, 1192)
+scale = Vector2(2, 2)
+
+[node name="good_kid7" parent="kids" instance=ExtResource("19_rsejb")]
+position = Vector2(3068, 1192)
+scale = Vector2(2, 2)
+
+[node name="good_kid8" parent="kids" instance=ExtResource("19_rsejb")]
+position = Vector2(3620, 1192)
+scale = Vector2(2, 2)
+
+[node name="good_kid9" parent="kids" instance=ExtResource("19_rsejb")]
+position = Vector2(3774, 1192)
+scale = Vector2(2, 2)
+
+[node name="good_kid10" parent="kids" instance=ExtResource("19_rsejb")]
+position = Vector2(4472, 1192)
+scale = Vector2(2, 2)
