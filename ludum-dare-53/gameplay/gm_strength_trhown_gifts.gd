@@ -5,8 +5,6 @@ var max_strength = 100
 var min_strength = 0
 var timer = null
 
-			
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	timer = get_node("Timer")
 	timer.set_wait_time(3)
