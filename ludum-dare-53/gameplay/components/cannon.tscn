@@ -7,21 +7,31 @@
 [ext_resource type="Texture2D" uid="uid://j2lgjplcs0mt" path="res://ludum-dare-53/gameplay/assets/dummy/strength_bar_fill.png" id="5_hlndv"]
 
 [node name="Cannon" type="Node2D"]
-position = Vector2(2.08165e-12, 2.08165e-12)
+position = Vector2(222, 377)
 script = ExtResource("1_4gpry")
+rotation_speed = 25.0
+strength_speed = 1.0
 
 [node name="CannonBarrell" type="Sprite2D" parent="."]
 position = Vector2(34, 4.31395e-07)
+rotation = -0.541052
 texture = ExtResource("1_rlx0g")
 offset = Vector2(80, 2.08165e-12)
+
+[node name="CannontOutput" type="Node2D" parent="CannonBarrell"]
+position = Vector2(206, -15)
 
 [node name="CannonBody" type="Sprite2D" parent="."]
 position = Vector2(2.08165e-12, 2.08165e-12)
 texture = ExtResource("2_p1iig")
 
 [node name="StrengthBar" type="TextureProgressBar" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
-texture_under = ExtResource("5_hlndv")
+visible = false
+offset_left = 83.0
+offset_top = -250.0
+offset_right = 595.0
+offset_bottom = -82.0
+scale = Vector2(0.5, 0.5)
+value = 1.0
 texture_over = ExtResource("4_h6ycv")
 texture_progress = ExtResource("5_hlndv")

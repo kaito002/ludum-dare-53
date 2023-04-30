@@ -1,18 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://unds0hygcjpf"]
+[gd_scene load_steps=4 format=3 uid="uid://bsmeja0r3m1d4"]
 
-[ext_resource type="Texture2D" uid="uid://funuda0mxk43" path="res://icon.svg" id="1_fc460"]
+[ext_resource type="Texture2D" uid="uid://segx1ueywsas" path="res://ludum-dare-53/gameplay/assets/dummy/present.png" id="1_y7c6r"]
+[ext_resource type="Script" path="res://ludum-dare-53/gameplay/components/present.gd" id="2_ev851"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fjyh8"]
-size = Vector2(136.533, 136.533)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c17p3"]
+size = Vector2(226, 228)
 
 [node name="Present" type="CharacterBody2D"]
-position = Vector2(538, 397)
-scale = Vector2(0.585938, 0.585938)
+position = Vector2(140, 581)
+script = ExtResource("2_ev851")
+initialDirection = Vector2(1, -1)
+speed = Vector2(3, 3)
 
-[node name="Icon" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(2.08165e-12, 2.08165e-12)
-texture = ExtResource("1_fc460")
+scale = Vector2(0.583791, 0.583791)
+texture = ExtResource("1_y7c6r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -6.10352e-05)
-shape = SubResource("RectangleShape2D_fjyh8")
+position = Vector2(-1, 6)
+shape = SubResource("RectangleShape2D_c17p3")
