@@ -30,10 +30,10 @@ texture = ExtResource("3_u4t7f")
 
 [node name="StrengthBar" type="TextureProgressBar" parent="."]
 visible = false
-offset_left = 10.5
-offset_top = -119.0
-offset_right = 522.5
-offset_bottom = 49.0
+offset_left = 40.5
+offset_top = 20.5
+offset_right = 552.5
+offset_bottom = 188.5
 scale = Vector2(0.2, 0.2)
 max_value = 200.0
 value = 1.0

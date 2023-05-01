@@ -15,9 +15,9 @@ func push(node: Screen):
 
 func replace(node: Screen):
 	var current_screen: Screen = _screens.pop_front()
-	push(node)
 	current_screen.on_kill()
 	content.remove_child(current_screen)
+	push(node)
 
 func go_back():
 	if (_screens.size() <= 1): return

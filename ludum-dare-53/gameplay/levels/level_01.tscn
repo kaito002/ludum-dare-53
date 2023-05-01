@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dnlugdptjk5g8"]
+[gd_scene load_steps=29 format=3 uid="uid://dnlugdptjk5g8"]
 
 [ext_resource type="Script" path="res://ludum-dare-53/gameplay/levels/level_01.gd" id="1_7oig1"]
 [ext_resource type="PackedScene" uid="uid://dv64myk5lp1nx" path="res://ludum-dare-53/gameplay/components/cannon.tscn" id="1_jgvpw"]
@@ -19,9 +19,13 @@
 [ext_resource type="Script" path="res://ludum-dare-53/gameplay/gm_color_dots_kids.gd" id="17_x10h5"]
 [ext_resource type="PackedScene" uid="uid://j413sskx1hcb" path="res://ludum-dare-53/gameplay/components/bad_kid.tscn" id="18_6v3md"]
 [ext_resource type="Texture2D" uid="uid://segx1ueywsas" path="res://ludum-dare-53/gameplay/assets/dummy/present.png" id="18_ojy3w"]
+[ext_resource type="FontFile" uid="uid://cuf0nlltm1tai" path="res://ludum-dare-53/gameplay/assets/fonts/Doctor_Soos_Light_1.1.ttf" id="18_t6aqi"]
 [ext_resource type="PackedScene" uid="uid://bwrin3pqg5mxe" path="res://ludum-dare-53/gameplay/components/good_kid.tscn" id="19_rsejb"]
 [ext_resource type="PackedScene" uid="uid://brykmuaskw8h4" path="res://ludum-dare-53/gameplay/components/grinch.tscn" id="20_1r7vm"]
+[ext_resource type="AudioStream" uid="uid://xol1d38wdrh7" path="res://ludum-dare-53/gameplay/assets/sounds/bad_kid.mp3" id="21_4j5m7"]
 [ext_resource type="AudioStream" uid="uid://dob6c1mtr3va4" path="res://ludum-dare-53/gameplay/assets/sounds/in_game.ogg" id="22_0v5hp"]
+[ext_resource type="Texture2D" uid="uid://m6xxetl5yu8g" path="res://ludum-dare-53/gameplay/assets/dummy/dialog.png" id="22_5d5hr"]
+[ext_resource type="AudioStream" uid="uid://c1m5duadtb3eu" path="res://ludum-dare-53/gameplay/assets/sounds/good_kid.ogg" id="22_voaj5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g0ha5"]
 size = Vector2(5685, 45)
@@ -164,7 +168,6 @@ texture = ExtResource("12_8hwqy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Limit/Wall/StaticBody2D"]
 position = Vector2(13.0953, 14.5412)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_p86hm")
 
 [node name="Cannon" parent="." instance=ExtResource("1_jgvpw")]
@@ -208,6 +211,7 @@ grow_vertical = 2
 max_value = 600.0
 texture_over = ExtResource("15_7udl7")
 texture_progress = ExtResource("16_q1go5")
+tint_progress = Color(0.941176, 0.00784314, 0, 1)
 script = ExtResource("17_x10h5")
 
 [node name="Points" type="Label" parent="CanvasLayer/GUI"]
@@ -223,7 +227,8 @@ grow_horizontal = 0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 6
 theme_override_constants/shadow_offset_y = 7
-theme_override_font_sizes/font_size = 50
+theme_override_fonts/font = ExtResource("18_t6aqi")
+theme_override_font_sizes/font_size = 75
 text = "0000"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -259,9 +264,101 @@ offset_right = -32.0
 offset_bottom = 31.0
 grow_horizontal = 0
 grow_vertical = 2
-theme_override_font_sizes/font_size = 55
+theme_override_fonts/font = ExtResource("18_t6aqi")
+theme_override_font_sizes/font_size = 70
 text = "8"
 horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Menu" type="Control" parent="CanvasLayer/GUI"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -226.0
+offset_top = -226.0
+offset_right = 226.0
+offset_bottom = 226.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/GUI/Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.105882, 0.670588, 0.945098, 0.796078)
+
+[node name="BackToMenuBtn" type="Button" parent="CanvasLayer/GUI/Menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -133.5
+offset_top = 72.0
+offset_right = 133.5
+offset_bottom = 161.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("18_t6aqi")
+theme_override_font_sizes/font_size = 55
+text = "EXIT"
+
+[node name="RetryBtn" type="Button" parent="CanvasLayer/GUI/Menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -133.0
+offset_top = -37.0
+offset_right = 134.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("18_t6aqi")
+theme_override_font_sizes/font_size = 55
+text = "Restart"
+
+[node name="GameOverMessage" type="Label" parent="CanvasLayer/GUI/Menu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -156.0
+offset_top = 32.0
+offset_right = 156.0
+offset_bottom = 133.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("18_t6aqi")
+theme_override_font_sizes/font_size = 100
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/GUI"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -517.0
+offset_top = 171.0
+offset_right = -296.0
+offset_bottom = 252.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0, 0.882353, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0.160784, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("18_t6aqi")
+theme_override_font_sizes/font_size = 65
+text = "Evilness!!"
 vertical_alignment = 1
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CanvasLayer"]
@@ -271,9 +368,41 @@ autoplay = true
 max_distance = 12000.0
 area_mask = 2
 
+[node name="BadKidsLaugh" type="AudioStreamPlayer2D" parent="CanvasLayer"]
+stream = ExtResource("21_4j5m7")
+
+[node name="GoodKidsLaugh" type="AudioStreamPlayer2D" parent="CanvasLayer"]
+stream = ExtResource("22_voaj5")
+volume_db = 2.0
+
 [node name="grinch" parent="." instance=ExtResource("20_1r7vm")]
 position = Vector2(93, 867)
 scale = Vector2(2.5, 2.5)
+
+[node name="Control" type="Control" parent="grinch"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Dialog" type="NinePatchRect" parent="grinch/Control"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = -150.0
+offset_right = 188.0
+offset_bottom = -25.0
+texture = ExtResource("22_5d5hr")
+
+[node name="Label" type="Label" parent="grinch/Control/Dialog"]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 18.0
+offset_right = 147.0
+offset_bottom = 96.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Only BAD kids
+will receive
+PRESENTS!"
 
 [node name="kids" type="Node2D" parent="."]
 
@@ -348,3 +477,6 @@ scale = Vector2(2, 2)
 [node name="good_kid10" parent="kids" instance=ExtResource("19_rsejb")]
 position = Vector2(4472, 1192)
 scale = Vector2(2, 2)
+
+[connection signal="pressed" from="CanvasLayer/GUI/Menu/BackToMenuBtn" to="." method="_on_back_to_menu_btn_pressed"]
+[connection signal="pressed" from="CanvasLayer/GUI/Menu/RetryBtn" to="." method="_on_retry_btn_pressed"]

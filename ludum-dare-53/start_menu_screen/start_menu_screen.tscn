@@ -1,11 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://dgfrk7ewducy6"]
+[gd_scene load_steps=13 format=3 uid="uid://dgfrk7ewducy6"]
 
 [ext_resource type="Script" path="res://ludum-dare-53/start_menu_screen/start_menu_screen.gd" id="1_o431y"]
 [ext_resource type="Texture2D" uid="uid://cp7d7xci3b118" path="res://ludum-dare-53/gameplay/assets/legacy/background/sky.png" id="2_jnmm4"]
 [ext_resource type="Texture2D" uid="uid://yja1x4ypal8t" path="res://ludum-dare-53/gameplay/assets/legacy/background/mountain.png" id="3_efmw8"]
 [ext_resource type="Texture2D" uid="uid://bnnwqj3wnfmgh" path="res://ludum-dare-53/gameplay/assets/legacy/background/whoville.png" id="4_1ij8k"]
 [ext_resource type="Texture2D" uid="uid://c443griqkmx1e" path="res://ludum-dare-53/gameplay/assets/legacy/main/title.png" id="5_p6j4d"]
+[ext_resource type="Texture2D" uid="uid://dlm2ev604w0ar" path="res://ludum-dare-53/gameplay/assets/legacy/background/copo1.png" id="6_6wgmq"]
 [ext_resource type="AudioStream" uid="uid://bq6x3st1qp8w1" path="res://ludum-dare-53/gameplay/assets/sounds/main_screen.wav" id="6_a36rx"]
+[ext_resource type="Texture2D" uid="uid://coh7w4v8p34gx" path="res://ludum-dare-53/gameplay/assets/legacy/background/copo2.png" id="7_84mfr"]
+[ext_resource type="Texture2D" uid="uid://xpfwxjnobf6v" path="res://ludum-dare-53/gameplay/assets/legacy/background/copo3.png" id="8_g5gp6"]
+[ext_resource type="Texture2D" uid="uid://cfmwost5xf0h8" path="res://ludum-dare-53/gameplay/assets/legacy/background/copo4.png" id="9_q5d6o"]
+[ext_resource type="Texture2D" uid="uid://cl5odarq33uhr" path="res://ludum-dare-53/gameplay/assets/legacy/background/copo5.png" id="10_082g3"]
+[ext_resource type="FontFile" uid="uid://cuf0nlltm1tai" path="res://ludum-dare-53/gameplay/assets/fonts/Doctor_Soos_Light_1.1.ttf" id="11_dfjbh"]
 
 [node name="StartMenuScreen" type="Node"]
 script = ExtResource("1_o431y")
@@ -28,6 +34,7 @@ grow_vertical = 2
 texture = ExtResource("2_jnmm4")
 
 [node name="Mountain" type="NinePatchRect" parent="Control"]
+layout_mode = 0
 offset_left = 2.0
 offset_top = 204.0
 offset_right = 1922.0
@@ -35,6 +42,7 @@ offset_bottom = 1284.0
 texture = ExtResource("3_efmw8")
 
 [node name="Whoville" type="NinePatchRect" parent="Control"]
+layout_mode = 0
 offset_left = 5.0
 offset_top = 210.0
 offset_right = 1921.0
@@ -52,21 +60,80 @@ offset_bottom = 1099.0
 grow_horizontal = 2
 texture = ExtResource("5_p6j4d")
 
-[node name="CreditsBtn" type="Button" parent="Control"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -132.0
-offset_top = -326.0
-offset_right = 121.0
-offset_bottom = -220.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_font_sizes/font_size = 25
-text = "Credits"
+[node name="snows" type="Control" parent="Control"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Copo1" type="NinePatchRect" parent="Control/snows"]
+offset_left = 989.0
+offset_top = 524.0
+offset_right = 1063.0
+offset_bottom = 602.0
+texture = ExtResource("6_6wgmq")
+
+[node name="Copo6" type="NinePatchRect" parent="Control/snows"]
+offset_left = 435.0
+offset_top = 717.0
+offset_right = 509.0
+offset_bottom = 795.0
+texture = ExtResource("6_6wgmq")
+
+[node name="Copo2" type="NinePatchRect" parent="Control/snows"]
+offset_left = 1462.0
+offset_top = 1019.0
+offset_right = 1538.0
+offset_bottom = 1100.0
+texture = ExtResource("7_84mfr")
+
+[node name="Copo10" type="NinePatchRect" parent="Control/snows"]
+offset_left = 1462.0
+offset_top = 761.0
+offset_right = 1538.0
+offset_bottom = 842.0
+texture = ExtResource("7_84mfr")
+
+[node name="Copo3" type="NinePatchRect" parent="Control/snows"]
+offset_left = 222.0
+offset_top = 973.0
+offset_right = 296.0
+offset_bottom = 1047.0
+texture = ExtResource("8_g5gp6")
+
+[node name="Copo9" type="NinePatchRect" parent="Control/snows"]
+offset_left = 1248.0
+offset_top = 98.0
+offset_right = 1322.0
+offset_bottom = 172.0
+texture = ExtResource("8_g5gp6")
+
+[node name="Copo4" type="NinePatchRect" parent="Control/snows"]
+offset_left = 1634.0
+offset_top = 504.0
+offset_right = 1717.0
+offset_bottom = 597.0
+texture = ExtResource("9_q5d6o")
+
+[node name="Copo8" type="NinePatchRect" parent="Control/snows"]
+offset_left = 235.0
+offset_top = 81.0
+offset_right = 318.0
+offset_bottom = 174.0
+texture = ExtResource("9_q5d6o")
+
+[node name="Copo5" type="NinePatchRect" parent="Control/snows"]
+offset_left = 180.0
+offset_top = 426.0
+offset_right = 266.0
+offset_bottom = 509.0
+texture = ExtResource("10_082g3")
+
+[node name="Copo7" type="NinePatchRect" parent="Control/snows"]
+offset_left = 1689.0
+offset_top = 83.0
+offset_right = 1775.0
+offset_bottom = 166.0
+texture = ExtResource("10_082g3")
 
 [node name="LevelOneBtn" type="Button" parent="Control"]
 layout_mode = 1
@@ -75,18 +142,54 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -402.0
+offset_left = -235.0
 offset_top = 52.0
-offset_right = 391.0
+offset_right = 224.0
 offset_bottom = 218.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 35
+theme_override_fonts/font = ExtResource("11_dfjbh")
+theme_override_font_sizes/font_size = 100
 text = "PLAY"
+
+[node name="CreditsBtn" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -132.0
+offset_top = -378.0
+offset_right = 121.0
+offset_bottom = -272.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("11_dfjbh")
+theme_override_font_sizes/font_size = 55
+text = "Credits"
+
+[node name="ExitBtn" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -132.0
+offset_top = -238.0
+offset_right = 121.0
+offset_bottom = -132.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("11_dfjbh")
+theme_override_font_sizes/font_size = 55
+text = "Exit"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_a36rx")
 autoplay = true
 
-[connection signal="pressed" from="Control/CreditsBtn" to="." method="_on_credits_btn_pressed"]
 [connection signal="pressed" from="Control/LevelOneBtn" to="." method="_on_level_one_btn_pressed"]
+[connection signal="pressed" from="Control/CreditsBtn" to="." method="_on_credits_btn_pressed"]
+[connection signal="pressed" from="Control/ExitBtn" to="." method="_on_exit_btn_pressed"]

@@ -8,3 +8,7 @@ func _on_credits_btn_pressed() -> void:
 	
 func _on_level_one_btn_pressed() -> void:
 	AppNavigator.replace(preload('res://ludum-dare-53/gameplay/levels/level_01.tscn').instantiate())
+
+
+func _on_exit_btn_pressed() -> void:
+	get_tree().quit()

@@ -32,6 +32,7 @@ grow_vertical = 2
 texture = ExtResource("2_8t76p")
 
 [node name="Title2" type="NinePatchRect" parent="Control"]
+layout_mode = 0
 offset_left = 6.0
 offset_top = 4.0
 offset_right = 1918.0
@@ -39,6 +40,7 @@ offset_bottom = 1080.0
 texture = ExtResource("3_sp84n")
 
 [node name="Mountain" type="NinePatchRect" parent="Control"]
+layout_mode = 0
 offset_left = 8.0
 offset_top = 207.0
 offset_right = 1929.0
@@ -46,6 +48,7 @@ offset_bottom = 1287.0
 texture = ExtResource("4_cmqur")
 
 [node name="Whoville" type="NinePatchRect" parent="Control"]
+layout_mode = 0
 offset_left = 7.0
 offset_top = 203.0
 offset_right = 1931.0
@@ -53,6 +56,7 @@ offset_bottom = 1285.0
 texture = ExtResource("5_2pvih")
 
 [node name="Copo1" type="NinePatchRect" parent="Control"]
+layout_mode = 0
 offset_left = 246.0
 offset_top = 629.0
 offset_right = 323.0
@@ -60,6 +64,7 @@ offset_bottom = 710.0
 texture = ExtResource("6_ac2yb")
 
 [node name="Copo8" type="NinePatchRect" parent="Control"]
+layout_mode = 0
 offset_left = 227.0
 offset_top = 155.0
 offset_right = 304.0
@@ -67,6 +72,7 @@ offset_bottom = 236.0
 texture = ExtResource("6_ac2yb")
 
 [node name="Copo2" type="NinePatchRect" parent="Control"]
+layout_mode = 0
 offset_left = 1315.0
 offset_top = 751.0
 offset_right = 1357.0
@@ -74,6 +80,7 @@ offset_bottom = 796.0
 texture = ExtResource("7_kl75r")
 
 [node name="Copo7" type="NinePatchRect" parent="Control"]
+layout_mode = 0
 offset_left = 843.0
 offset_top = 1100.0
 offset_right = 885.0
@@ -81,6 +88,7 @@ offset_bottom = 1145.0
 texture = ExtResource("7_kl75r")
 
 [node name="Copo6" type="NinePatchRect" parent="Control"]
+layout_mode = 0
 offset_left = 1634.0
 offset_top = 1009.0
 offset_right = 1733.0
@@ -88,6 +96,7 @@ offset_bottom = 1115.0
 texture = ExtResource("7_kl75r")
 
 [node name="Copo3" type="NinePatchRect" parent="Control"]
+layout_mode = 0
 offset_left = 823.0
 offset_top = 526.0
 offset_right = 950.0
@@ -95,6 +104,7 @@ offset_bottom = 653.0
 texture = ExtResource("8_40pq6")
 
 [node name="Copo11" type="NinePatchRect" parent="Control"]
+layout_mode = 0
 offset_left = 1674.0
 offset_top = 69.0
 offset_right = 1801.0
@@ -102,6 +112,7 @@ offset_bottom = 196.0
 texture = ExtResource("8_40pq6")
 
 [node name="Copo4" type="NinePatchRect" parent="Control"]
+layout_mode = 0
 offset_left = 1646.0
 offset_top = 464.0
 offset_right = 1728.0
@@ -109,6 +120,7 @@ offset_bottom = 556.0
 texture = ExtResource("9_fg0fy")
 
 [node name="Copo9" type="NinePatchRect" parent="Control"]
+layout_mode = 0
 offset_left = 1295.0
 offset_top = 1066.0
 offset_right = 1377.0
@@ -116,6 +128,7 @@ offset_bottom = 1158.0
 texture = ExtResource("9_fg0fy")
 
 [node name="Copo5" type="NinePatchRect" parent="Control"]
+layout_mode = 0
 offset_left = 268.0
 offset_top = 1079.0
 offset_right = 343.0
@@ -123,6 +136,7 @@ offset_bottom = 1152.0
 texture = ExtResource("10_ik4ri")
 
 [node name="Copo10" type="NinePatchRect" parent="Control"]
+layout_mode = 0
 offset_left = 1353.0
 offset_top = 537.0
 offset_right = 1428.0
@@ -130,6 +144,6 @@ offset_bottom = 610.0
 texture = ExtResource("10_ik4ri")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 1.5
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
