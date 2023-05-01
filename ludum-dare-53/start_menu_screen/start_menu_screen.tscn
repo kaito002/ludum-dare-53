@@ -66,6 +66,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Copo1" type="NinePatchRect" parent="Control/snows"]
+layout_mode = 0
 offset_left = 989.0
 offset_top = 524.0
 offset_right = 1063.0
@@ -73,6 +74,7 @@ offset_bottom = 602.0
 texture = ExtResource("6_6wgmq")
 
 [node name="Copo6" type="NinePatchRect" parent="Control/snows"]
+layout_mode = 0
 offset_left = 435.0
 offset_top = 717.0
 offset_right = 509.0
@@ -80,6 +82,7 @@ offset_bottom = 795.0
 texture = ExtResource("6_6wgmq")
 
 [node name="Copo2" type="NinePatchRect" parent="Control/snows"]
+layout_mode = 0
 offset_left = 1462.0
 offset_top = 1019.0
 offset_right = 1538.0
@@ -87,6 +90,7 @@ offset_bottom = 1100.0
 texture = ExtResource("7_84mfr")
 
 [node name="Copo10" type="NinePatchRect" parent="Control/snows"]
+layout_mode = 0
 offset_left = 1462.0
 offset_top = 761.0
 offset_right = 1538.0
@@ -94,6 +98,7 @@ offset_bottom = 842.0
 texture = ExtResource("7_84mfr")
 
 [node name="Copo3" type="NinePatchRect" parent="Control/snows"]
+layout_mode = 0
 offset_left = 222.0
 offset_top = 973.0
 offset_right = 296.0
@@ -101,6 +106,7 @@ offset_bottom = 1047.0
 texture = ExtResource("8_g5gp6")
 
 [node name="Copo9" type="NinePatchRect" parent="Control/snows"]
+layout_mode = 0
 offset_left = 1248.0
 offset_top = 98.0
 offset_right = 1322.0
@@ -108,6 +114,7 @@ offset_bottom = 172.0
 texture = ExtResource("8_g5gp6")
 
 [node name="Copo4" type="NinePatchRect" parent="Control/snows"]
+layout_mode = 0
 offset_left = 1634.0
 offset_top = 504.0
 offset_right = 1717.0
@@ -115,6 +122,7 @@ offset_bottom = 597.0
 texture = ExtResource("9_q5d6o")
 
 [node name="Copo8" type="NinePatchRect" parent="Control/snows"]
+layout_mode = 0
 offset_left = 235.0
 offset_top = 81.0
 offset_right = 318.0
@@ -122,6 +130,7 @@ offset_bottom = 174.0
 texture = ExtResource("9_q5d6o")
 
 [node name="Copo5" type="NinePatchRect" parent="Control/snows"]
+layout_mode = 0
 offset_left = 180.0
 offset_top = 426.0
 offset_right = 266.0
@@ -129,6 +138,7 @@ offset_bottom = 509.0
 texture = ExtResource("10_082g3")
 
 [node name="Copo7" type="NinePatchRect" parent="Control/snows"]
+layout_mode = 0
 offset_left = 1689.0
 offset_top = 83.0
 offset_right = 1775.0

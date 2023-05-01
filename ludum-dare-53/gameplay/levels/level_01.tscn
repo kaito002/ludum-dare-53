@@ -1,6 +1,6 @@
 [gd_scene load_steps=29 format=3 uid="uid://dnlugdptjk5g8"]
 
-[ext_resource type="Script" path="res://ludum-dare-53/gameplay/levels/level_01.gd" id="1_7oig1"]
+[ext_resource type="Script" path="res://ludum-dare-53/gameplay/levels/level_01.gd" id="1_76u75"]
 [ext_resource type="PackedScene" uid="uid://dv64myk5lp1nx" path="res://ludum-dare-53/gameplay/components/cannon.tscn" id="1_jgvpw"]
 [ext_resource type="Texture2D" uid="uid://cp7d7xci3b118" path="res://ludum-dare-53/gameplay/assets/legacy/background/sky.png" id="2_7j8kq"]
 [ext_resource type="Texture2D" uid="uid://dlm2ev604w0ar" path="res://ludum-dare-53/gameplay/assets/legacy/background/copo1.png" id="2_lc4cy"]
@@ -34,7 +34,7 @@ size = Vector2(5685, 45)
 size = Vector2(856.159, 39.822)
 
 [node name="level_01" type="Node"]
-script = ExtResource("1_7oig1")
+script = ExtResource("1_76u75")
 metadata/_edit_vertical_guides_ = [6136.0]
 
 [node name="Background" type="Node2D" parent="."]
